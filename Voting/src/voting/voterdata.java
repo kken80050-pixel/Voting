@@ -28,4 +28,14 @@ public class voterdata {
             e.printStackTrace();
         }
     }
+    public static String[] voted(String voterid){
+        loadvoter();
+        for (String line : voters){
+            String[] parts = line.split(",");
+            if (parts.length >= 4 && parts[1].equals(voterid)){
+                return parts;
+            }
+        }
+        return null;
+    }
 }

@@ -11,7 +11,9 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
-    }
+        
+        getRootPane().setDefaultButton(jButton1);
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,17 +126,10 @@ public class Login extends javax.swing.JFrame {
         
         if (voterid.isEmpty()){
             JOptionPane.showMessageDialog(this, "Please enter your voter id");
-        }
-        voterdata.loadvoter();
-        for (String line : voterdata.voters){
-            String[] parts = line.split(",");
-            if(parts[1].equals(voterid)){
-                JOptionPane.showMessageDialog(this, "You Have Already Voted");
-                return;
-            }
-        }
-        new Fillupform(voterid).setVisible(true);
-        setVisible(false);
+        } else {
+           new Fillupform(voterid).setVisible(true);
+            setVisible(false); 
+        } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
